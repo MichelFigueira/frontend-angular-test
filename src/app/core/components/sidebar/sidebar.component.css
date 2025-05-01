@@ -1,0 +1,12 @@
+.menu-item {
+	color: #747474;
+	text-decoration: none;
+	display: block;
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+
+.menu-item.active {
+	font-weight: bold;
+	color: #398de0;
+}

@@ -1,0 +1,28 @@
+header {
+	background-color: #2f3338;
+	color: #fff;
+	padding: 18px;
+	font-size: 14px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+	position: fixed;
+	top: 53px;
+	left: 0;
+	width: 15%;
+	height: calc(100vh - 64px);
+	background-color: #f9f9f9;
+	padding: 15px;
+	box-sizing: border-box;
+}
+
+.content {
+	margin-left: 15%; /* same % of the sidebar */
+	padding: 2px;
+  	padding-top: 80px; /* avoid overlapping with the header */
+}
