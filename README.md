@@ -42,7 +42,7 @@ Before you begin, ensure you have the following installed:
 	The application will automatically reload if you change any of the source files.
 
 ## Building for Production
-
+1.
 	To build the project for a production environment, run:
 
 	```bash
@@ -53,7 +53,7 @@ Before you begin, ensure you have the following installed:
 	**<span style="color:red">Remember to build on the master branch for production. The dev environment is exclusive for developers and testing.</span>**
 
 ## Running Unit Tests
-
+1.
 	To execute the unit tests via [Jasmine/Karma], run:
 
 	```bash
