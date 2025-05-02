@@ -6,6 +6,7 @@
 
 .table-list-movies thead tr th {
 	text-align: center;
+	width: 25%;
 }
 
 .filter-input input, .filter-select select {
