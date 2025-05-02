@@ -4,3 +4,44 @@ body {
     border: 0;
 	font-family: 'Roboto', sans-serif;
 }
+
+h2 {
+    margin-top: 0;
+	font-size: 18px;
+}
+
+h3 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+	font-size: 15px;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+section {
+    color: #333;
+    padding: 20px;
+    border-radius: 3px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}

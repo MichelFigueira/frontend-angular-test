@@ -36,3 +36,32 @@ export interface MovieWinnersByYearResponse {
 	producers: string[];
 	winner: boolean;
 }
+
+export interface MoviesResponse {
+	content: MovieWinnersByYearResponse[];
+	empty: boolean;
+	first: boolean;
+	last: boolean;
+	number: number;
+	numberOfElements: number;
+	pageable: MoviesPageable;
+	size: number;
+	sort: MoviesSort;
+	totalElements: number;
+	totalPages: number;
+}
+
+export interface MoviesPageable {
+	sort: MoviesSort;
+	offset: number;
+	pageSize: number;
+	pageNumber: number;
+	paged: boolean;
+	unpaged: boolean;
+}
+
+export interface MoviesSort {
+	sorted: boolean;
+	unsorted: boolean;
+	empty: boolean;
+}
