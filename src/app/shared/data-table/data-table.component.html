@@ -1,0 +1,27 @@
+<ng-content />
+<table class="fixed-table">
+	<!-- Start Table Header -->
+	<thead>
+		<tr>
+			@for (col of tableData.columns; track $index) {
+				<th>
+					{{ col.header }}
+				</th>
+			}
+		</tr>
+	</thead>
+	<!-- End Table Header -->
+	<!-- Start Table Body -->
+	<tbody>
+		@for (item of tableData.data; track $index) {
+			<tr>
+				@for (col of tableData.columns; track $index) {
+					<td>
+						{{ item[col.field] }}
+					</td>
+				}
+			</tr>
+		}
+	</tbody>
+	<!-- End Table Body -->
+</table>

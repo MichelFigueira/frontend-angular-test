@@ -1,0 +1,91 @@
+<section id="list-movies">
+	<h2>{{ title }}</h2>
+	<table class="table-list-movies">
+
+		<!-- Start Data Table -->
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>
+					Year
+					<div class="filter-input">
+					<label for="filterYear"></label>
+					<input type="number" id="filterYear" [(ngModel)]="filterYear" (input)="applyFilters()" placeholder="Filter by year">
+					</div>
+				</th>
+				<th>Title</th>
+				<th>
+					Winner?
+					<div class="filter-select">
+					  <label for="filterWinner"></label>
+					  <select id="filterWinner" [(ngModel)]="filterWinner" (change)="applyFilters()">
+						<option [ngValue]="'Yes/No'">Yes/No</option>
+						<option [ngValue]="'Yes'">Yes</option>
+						<option [ngValue]="'No'">No</option>
+					  </select>
+					</div>
+				  </th>
+			</tr>
+		</thead>
+		<tbody>
+			@if (movies) {
+				@for (item of movies.content; track $index) {
+					<tr>
+						<td>{{ item.id }}</td>
+						<td>{{ item.year }}</td>
+						<td>{{ item.title }}</td>
+						<td>
+							{{ item.winner === true ? 'Yes' : 'No' }}
+						</td>
+					</tr>
+				}
+			}
+
+		</tbody>
+		<!-- End Data Table -->
+
+		<!-- Start Page Navigation -->
+		<tfoot>
+			<tr>
+				<td colspan="4" class="pagination">
+						<!--First Page Button-->
+						<button type="button" (click)="goToFirstPage()" [disabled]="currentPage === 0" title="First page">
+							&#x23EE;
+						</button>
+
+						<!-- Previous Page Button -->
+						<button type="button" (click)="goToPreviousPage()" [disabled]="currentPage === 0" title="Previous page">
+							&#x23F4;
+						</button>
+
+						<!-- Pages Number -->
+						@for (page of visiblePages; track $index) {
+							<ng-container>
+							<button
+								type="button"
+								(click)="goToPage(page)"
+								[class.active]="page === currentPage + 1"
+								[attr.aria-current]="page === currentPage + 1 ? 'page' : null"
+								title="Page {{ page }}">
+								{{ page }}
+							</button>
+							</ng-container>
+						}
+
+						<!-- Next Page Button-->
+						<button type="button" (click)="goToNextPage()" [disabled]="currentPage === totalPages - 1" title="Next page">
+							&#x23F5;
+						</button>
+
+						<!-- Last Page Button-->
+						<button type="button" (click)="goToLastPage()" [disabled]="currentPage === totalPages - 1" title="Last page">
+							&#x23ED;
+						</button>
+
+				</td>
+		</tfoot>
+		<!-- End Page Navigation -->
+
+	</table>
+
+</section>

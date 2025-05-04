@@ -1,0 +1,5 @@
+@for (item of menu; track $index) {
+	<a class="menu-item" [routerLink]="item.path" routerLinkActive="active">
+		{{ item.title }}
+	</a>
+}

@@ -1,0 +1,40 @@
+<div class="dashboard">
+
+	<section id="multiple-winners">
+		<h2>{{ yearsMultipleWinnersTitle }}</h2>
+		<app-data-table [tableData]="yearsMultipleWinnersData"></app-data-table>
+	</section>
+
+	<section id="top-studios">
+		<h2>{{ studiosWinCountTitle }}</h2>
+		<app-data-table [tableData]="studiosWinCountData"></app-data-table>
+	</section>
+
+	<section id="producer-intervals">
+		<h2>{{ producerWinIntervalTitle }}</h2>
+		<app-data-table [tableData]="producerWinIntervalDataMax">
+			<h3>Maximum</h3>
+		</app-data-table>
+		<app-data-table [tableData]="producerWinIntervalDataMin">
+			<h3>Minimum</h3>
+		</app-data-table>
+	</section>
+
+	<section id="movie-list">
+		<h2>{{ movieWinnersByYearTitle }}</h2>
+		<app-data-table [tableData]="movieWinnersByYearData">
+			<div class="search-bar">
+				<input
+					type="number"
+					placeholder="Search by year"
+					[(ngModel)]="yearInput"
+					(input)="onYearInputChange(yearInput)"
+					step="1" >
+				<button>
+					<img src="/search-icon.svg" alt="Search Icon">
+				</button>
+			</div>
+		</app-data-table>
+	</section>
+
+</div>

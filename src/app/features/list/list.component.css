@@ -1,0 +1,46 @@
+#list-movies {
+	font-family: sans-serif;
+	padding: 20px;
+	margin: 1px 30px;
+}
+
+.table-list-movies thead tr th {
+	text-align: center;
+	width: 25%;
+}
+
+.filter-input input, .filter-select select {
+	width: 100%;
+	padding: 5px;
+	margin-top: 5px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+.filter-select select {
+	text-align: center;
+}
+
+.pagination {
+	text-align: center;
+	padding: 0px;
+	background-color: #ececec;
+}
+
+.pagination button {
+	padding: 8px 12px;
+	border: 0px;
+	cursor: pointer;
+	color: #6d6d6d;
+}
+
+.pagination button.active {
+	background-color: #007bff;
+	color: white;
+	border-color: #007bff;
+}
+
+.pagination button:disabled {
+	cursor: not-allowed;
+	opacity: 0.6;
+}
