@@ -31,7 +31,7 @@ describe('DashboardComponent', () => {
 
 		fixture.detectChanges();
 
-		expect(component.yearsMultipleWinnersData).toEqual(mockResponse.years);
+		expect(component.yearsMultipleWinnersData.data).toEqual(mockResponse.years);
 	});
 
 	it('should fetch top 3 studios with winners on initialization', () => {
@@ -44,7 +44,7 @@ describe('DashboardComponent', () => {
 
 		fixture.detectChanges();
 
-		expect(component.studiosWinCountData).toEqual(mockResponse.studios.slice(0, 3));
+		expect(component.studiosWinCountData.data).toEqual(mockResponse.studios.slice(0, 3));
 	});
 
 	it('should fetch producer win intervals on initialization', () => {
@@ -57,7 +57,8 @@ describe('DashboardComponent', () => {
 
 		fixture.detectChanges();
 
-		expect(component.producerWinIntervalData).toEqual(mockResponse);
+		expect(component.producerWinIntervalDataMin.data).toEqual(mockResponse.min);
+		expect(component.producerWinIntervalDataMin.data).toEqual(mockResponse.max);
 	});
 
 	it('should fetch movie winners by year when year input changes', fakeAsync(() => {
@@ -75,7 +76,7 @@ describe('DashboardComponent', () => {
 		fixture.detectChanges(); // Trigger change detection after data should be fetched
 
 		expect(moviesService.getMovieWinnersByYear).toHaveBeenCalledWith(2000);
-		expect(component.movieWinnersByYearData).toEqual(mockResponse);
+		expect(component.movieWinnersByYearData.data).toEqual(mockResponse);
 	}));
 
 	it('should debounce year input changes', fakeAsync(() => {
@@ -92,7 +93,7 @@ describe('DashboardComponent', () => {
 		tick(500); // Simulate debounce time
 
 		expect(moviesService.getMovieWinnersByYear).toHaveBeenCalledWith(2000);
-		expect(component.movieWinnersByYearData).toEqual(mockResponse);
+		expect(component.movieWinnersByYearData.data).toEqual(mockResponse);
 	}));
 
 	it('should clean up subscriptions on destroy', () => {

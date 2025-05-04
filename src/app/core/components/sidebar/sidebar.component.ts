@@ -10,6 +10,10 @@ import { Menu } from '../../models/menu.model';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
+	/**
+		* Represents the menu items for the sidebar component.
+		* Each menu item includes a title and a corresponding navigation path.
+	*/
 	menu: Menu[] = [
 		{ title: 'Dashboard', path: '/dashboard' },
 		{ title: 'List', path: '/list' }

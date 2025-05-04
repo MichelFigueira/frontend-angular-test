@@ -1,0 +1,10 @@
+.fixed-table {
+	width: 100%;
+	table-layout: fixed;
+}
+
+.fixed-table th,
+.fixed-table td {
+	width: auto;
+	text-align: left;
+}

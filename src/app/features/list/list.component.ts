@@ -11,6 +11,12 @@ import { MoviesService } from '../../shared/services/movies.service';
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
+ /**
+	* This component is responsible for displaying a paginated list of movies,
+	* allowing users to filter by year and winner status.
+	* It utilizes the `MoviesService` to retrieve data from the backend API.
+	* The component also handles pagination and updates the visible pages based on user interaction.
+ */
 export class ListComponent implements OnInit {
 	title = 'List movies';
 	movies!: MoviesResponse;
@@ -33,6 +39,9 @@ export class ListComponent implements OnInit {
 		this.getFilteredMovies();
 	}
 
+	/**
+	 * Fetches filtered movies based on the current page, page size, year, and winner filter, and updates the pagination.
+	 */
 	getFilteredMovies(): void {
 		this.moviesService.getMovies(this.currentPage, this.pageSize, this.filterYear, this.filterWinner).subscribe({
 			next: (res) => {
@@ -45,6 +54,9 @@ export class ListComponent implements OnInit {
 		  });
 	}
 
+	/**
+	 * Applies filters to the movie list, validating the year and resetting pagination.
+	 */
 	applyFilters(): void {
 		if (this.filterYear && this.filterYear < 1900) {
 			console.warn('Invalid Year');
@@ -56,6 +68,9 @@ export class ListComponent implements OnInit {
 		this.getFilteredMovies();
 	}
 
+	/**
+	 * Updates the pagination state based on the provided movies response.
+	 */
 	updatePagination(movies: MoviesResponse): void {
 		this.currentPage = movies.number;
 		this.totalPages = movies.totalPages;
@@ -63,27 +78,45 @@ export class ListComponent implements OnInit {
 		this.updateVisiblePages();
 	}
 
+	/**
+	 * Navigates to the specified page and fetches the filtered movies.
+	 */
 	goToPage(page: number): void {
 		this.currentPage = page - 1;
 		this.getFilteredMovies();
 	}
 
+	/**
+	 * Navigates to the previous page.
+	 */
 	goToPreviousPage(): void {
 		this.changePage(this.currentPage - 1);
 	}
 
+	/**
+	 * Advances to the next page.
+	 */
 	goToNextPage(): void {
 		this.changePage(this.currentPage + 1);
 	}
 
+	/**
+	 * Navigates to the first page by setting the current page index to 0.
+	 */
 	goToFirstPage(): void {
 		this.changePage(0);
 	}
 
+	/**
+	 * Navigates to the last page of the list.
+	 */
 	goToLastPage(): void {
 		this.changePage(this.totalPages - 1);
 	}
 
+	/**
+	 * Changes the current page if the specified page is valid and different from the current one, then fetches filtered movies.
+	 */
 	changePage(page: number): void {
 		if (page >= 0 && page < this.totalPages && page !== this.currentPage) {
 		  this.currentPage = page;
@@ -91,6 +124,9 @@ export class ListComponent implements OnInit {
 		}
 	}
 
+	/**
+	 * Updates the range of visible pages based on the current page and total pages.
+	 */
 	updateVisiblePages(): void {
 		const total = this.totalPages;
 		const current = this.currentPage + 1;

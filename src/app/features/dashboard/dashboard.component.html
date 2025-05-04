@@ -1,124 +1,40 @@
 <div class="dashboard">
+
 	<section id="multiple-winners">
 		<h2>{{ yearsMultipleWinnersTitle }}</h2>
-		<table>
-			<thead>
-				<tr>
-					<th>Year</th>
-					<th>Win Count</th>
-				</tr>
-			</thead>
-			<tbody>
-				@for (item of yearsMultipleWinnersData; track $index) {
-					<tr>
-						<td>{{ item.year }}</td>
-						<td>{{ item.winnerCount }}</td>
-					</tr>
-				}
-			</tbody>
-		</table>
+		<app-data-table [tableData]="yearsMultipleWinnersData"></app-data-table>
 	</section>
 
 	<section id="top-studios">
 		<h2>{{ studiosWinCountTitle }}</h2>
-		<table>
-			<thead>
-				<tr>
-					<th>Year</th>
-					<th>Win Count</th>
-				</tr>
-			</thead>
-			<tbody>
-				@for (item of studiosWinCountData; track $index) {
-					<tr>
-						<td>{{ item.name }}</td>
-						<td>{{ item.winCount }}</td>
-					</tr>
-				}
-			</tbody>
-		</table>
+		<app-data-table [tableData]="studiosWinCountData"></app-data-table>
 	</section>
 
 	<section id="producer-intervals">
 		<h2>{{ producerWinIntervalTitle }}</h2>
-		<div class="maximum">
+		<app-data-table [tableData]="producerWinIntervalDataMax">
 			<h3>Maximum</h3>
-			<table>
-				<thead>
-					<tr>
-						<th class="sticky-col">Producer</th>
-						<th>Interval</th>
-						<th>Previous Year</th>
-						<th>Following Year</th>
-					</tr>
-				</thead>
-				<tbody>
-					@for (item of producerWinIntervalData?.max; track $index) {
-						<tr>
-							<td>{{ item.producer }}</td>
-							<td>{{ item.interval }}</td>
-							<td>{{ item.previousWin }}</td>
-							<td>{{ item.followingWin }}</td>
-						</tr>
-					}
-				</tbody>
-			</table>
-		</div>
-		<div class="minimum">
+		</app-data-table>
+		<app-data-table [tableData]="producerWinIntervalDataMin">
 			<h3>Minimum</h3>
-			<table>
-				<thead>
-					<tr>
-						<th class="sticky-col">Producer</th>
-						<th>Interval</th>
-						<th>Previous Year</th>
-						<th>Following Year</th>
-					</tr>
-				</thead>
-				<tbody>
-					@for (item of producerWinIntervalData?.min; track $index) {
-						<tr>
-							<td>{{ item.producer }}</td>
-							<td>{{ item.interval }}</td>
-							<td>{{ item.previousWin }}</td>
-							<td>{{ item.followingWin }}</td>
-						</tr>
-					}
-				</tbody>
-			</table>
-		</div>
+		</app-data-table>
 	</section>
 
 	<section id="movie-list">
 		<h2>{{ movieWinnersByYearTitle }}</h2>
-		<div class="search-bar">
-			<input
-				type="number"
-				placeholder="Search by year"
-				[(ngModel)]="yearInput"
-				(input)="onYearInputChange(yearInput)"
-				step="1" >
-			<button>
-				<img src="/search-icon.svg" alt="Search Icon">
-			</button>
-		</div>
-		<table>
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Year</th>
-					<th>Title</th>
-				</tr>
-			</thead>
-			<tbody>
-				@for (item of movieWinnersByYearData; track $index) {
-					<tr>
-						<td>{{ item.id }}</td>
-						<td>{{ item.year }}</td>
-						<td>{{ item.title }}</td>
-					</tr>
-				}
-				</tbody>
-		</table>
+		<app-data-table [tableData]="movieWinnersByYearData">
+			<div class="search-bar">
+				<input
+					type="number"
+					placeholder="Search by year"
+					[(ngModel)]="yearInput"
+					(input)="onYearInputChange(yearInput)"
+					step="1" >
+				<button>
+					<img src="/search-icon.svg" alt="Search Icon">
+				</button>
+			</div>
+		</app-data-table>
 	</section>
+
 </div>
